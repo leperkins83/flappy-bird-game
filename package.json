@@ -1,0 +1,24 @@
+{
+  "name": "flappy-bird-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "reload -b -p 8777"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leperkins83/flappy-bird-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leperkins83/flappy-bird-game/issues"
+  },
+  "homepage": "https://github.com/leperkins83/flappy-bird-game#readme",
+  "devDependencies": {
+    "reload": "^1.1.3"
+  }
+}
