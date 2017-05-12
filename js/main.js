@@ -13,7 +13,7 @@ window.onload = function(){
    setInterval(function(){
        let pipeSet = generateRandomPipes(ctx, c.width, c.height);
        pipes.push(pipeSet.top, pipeSet.bottom);
-       //console.log('pipes');
+       console.log('pipes');
    }, 2400);
    gameLoop();
 
@@ -36,7 +36,7 @@ window.onload = function(){
      });
      bird.render();
      if(bird.dead) {
-	      drawGameOver(ctx, c);
+	     drawGameOver(ctx, c);
      	//return;  //THIS RETURN WILL FREEZE THE GAME WHEN YOU DIE, KEEP FOR NOW!!
      }
      window.requestAnimationFrame(gameLoop);
@@ -44,11 +44,13 @@ window.onload = function(){
 };
 
 function generateRandomPipes(ctx, canvasWidth, canvasHeight){
+  console.log(canvasWidth)
   let lengthTop = Math.round(Math.random()*200+50);
-  let lengthBottom = canvasHeight - 300 - lengthTop;
+  let lengthBottom = canvasHeight - 200 - lengthTop;
   let returnVal = { };
-  returnVal.top = new Pipe(canvasWidth, -5, lengthTop, 3, ctx);
-  returnVal.bottom = new Pipe(canvasWidth, canvasHeight+5-lengthBottom, lengthBottom, 3, ctx);
+  returnVal.top = new Pipe(canvasWidth, -5, lengthTop, 4, ctx);
+  returnVal.bottom = new Pipe(canvasWidth, canvasHeight+5-lengthBottom, lengthBottom, 4, ctx);
+  console.log(returnVal);
   return returnVal;
 }
 

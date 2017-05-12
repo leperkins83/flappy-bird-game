@@ -1,5 +1,5 @@
 const Pipe = function(xpos, ypos, length, speed, ctx) {
-	this.pos = ypos;
+	this.ypos = ypos;
 	this.xpos = xpos;
 	this.length = length;
 	this.ctx = ctx;
