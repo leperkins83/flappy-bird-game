@@ -22,6 +22,7 @@ window.onload = function(){
   //  MAIN GAME LOOP
   function gameLoop(){
      //ctx.fillRect(0, 0, c.width, c.height);
+
      bird.update(pipes);
      if(!bird.dead) {
      environment.update();
@@ -31,6 +32,7 @@ window.onload = function(){
      });
      }
      environment.render();
+
      pipes.forEach(function(pipe1){
        pipe1.render();
      });
@@ -39,14 +41,14 @@ window.onload = function(){
 	     drawGameOver(ctx, c);
      	//return;  //THIS RETURN WILL FREEZE THE GAME WHEN YOU DIE, KEEP FOR NOW!!
      }
+     playerScore(ctx, c);
      window.requestAnimationFrame(gameLoop);
    }
 };
 
 function generateRandomPipes(ctx, canvasWidth, canvasHeight){
-  console.log(canvasWidth)
   let lengthTop = Math.round(Math.random()*200+50);
-  let lengthBottom = canvasHeight - 200 - lengthTop;
+  let lengthBottom = canvasHeight - 300 - lengthTop;
   let returnVal = { };
   returnVal.top = new Pipe(canvasWidth, -5, lengthTop, 4, ctx);
   returnVal.bottom = new Pipe(canvasWidth, canvasHeight+5-lengthBottom, lengthBottom, 4, ctx);
@@ -58,4 +60,27 @@ function drawGameOver(ctx, c){
 	ctx.font = "50px Impact";
 	ctx.textAlign = 'center';
 	ctx.fillText('GAME OVER!', c.width/2, c.height/2);
+  //document.getElementById('canvas').onclick = function(){
+    //  location.reload();
 }
+
+function playerScore(ctx, c){
+  console.log ('score');
+  ctx.font = "20px Impact";
+  ctx.textAlign="left";
+  ctx.fillText('Your Score:', c.width/30, c.height-550);
+}
+
+ function scoreCounter(ctx, c) {
+ this.score = 0;
+ this.labelScore = game.add.text(20, 20, "0",
+     { font: "30px Impact", fill: "#ffffff" });
+     }
+
+    //  function scoreCounter(ctx, c) {
+    //  this.score = 0;
+    //  this.labelScore = game.add.text(20, 20, "0",
+    //      { font: "30px Impact", fill: "#ffffff" });
+    //      }
+    //  this.score += 1;
+    //  this.labelScore.text = this.score;
