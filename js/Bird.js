@@ -20,6 +20,7 @@ window.addEventListener('keydown', function(e){
 };
 
 Bird.prototype.update = function(pipes){
+	//this.music.play();
 	this.y += this.velY; //gravity of bird
 	this.velY += 1.25;   //gravity of bird
 	if (this.detectCollisions(pipes)){  //calling and updating the detect collisions function
@@ -31,6 +32,7 @@ Bird.prototype.update = function(pipes){
 };
 
 Bird.prototype.render = function(){
+
 	let renderX = - this.width/2;
 	let renderY = - this.height/2;
 	this.ctx.save();
@@ -63,9 +65,10 @@ Bird.prototype.detectCollisions = function(pipes) {
           let a1 = this.x;
           let b1 = this.y + this.height/2;
           if (a1 > x0 && a1 < x1 && b1 > y1 ||
-	           a2 > x0 && a2 < x1 && b2 > y1)
+	           a2 > x0 && a2 < x1 && b2 > y1) {
              return true;
-        }
+		 }
+    }
   }
   return false;
 };
